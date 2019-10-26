@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ThrowStmt } from '@angular/compiler';
 import { Observable, Subscriber } from 'rxjs';
 
@@ -8,34 +8,8 @@ import { Observable, Subscriber } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit {
-  observable: Observable<string>;
-
-  nomes: Array<string> = [];
-
-  ngOnInit(){
-    this.observable = new Observable(subscriber => {
-      setInterval(() => {
-        subscriber.next(this.makeid(5));
-      }, 10000);
-    });
-
-    this.nomes = lista;
-  }
-
-  enviar(valor: string){
-    this.nomes.push(valor);
-  }
-
-  makeid(length){
-    var text = "";
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcefghijklmnopqrstuvwxyz0123456789";
-    for(var i=0; i<length; i++)
-      text += possible.charAt(Math.floor(Math.random() * possible.length));
-    return text;
-  }
-
-  //: string[] = ['joão','maria','josé','pedro','felipe','carlos'];
+export class AppComponent {
+  nomes: string[] = ['joão','maria','josé','pedro','felipe','carlos'];
 
   nomesFiltro: string[];
 
@@ -106,7 +80,7 @@ export class AppComponent implements OnInit {
       Object.keys(pessoa).some
       (chave => pessoa[chave].toString().includes(criterio)));
   }
-/*
+
   ngOnInit(){
     const observable = new Observable(subscriber => {
       subscriber.next(100);
@@ -117,8 +91,7 @@ export class AppComponent implements OnInit {
         subscriber.complete();
       }, 1000);
     });
-*/
-/*
+
     console.log('Antes de executar subscribe');
     observable.subscribe({
       next(x) { console.log('recebeu o valor ' + x); },
@@ -128,6 +101,5 @@ export class AppComponent implements OnInit {
 
     console.log('ultima linha');
   }
-*/
 
 }
