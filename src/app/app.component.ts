@@ -61,5 +61,10 @@ export class AppComponent{
       (nome) => nome.toLowerCase().includes(valor.toLowerCase()));
   }
 
+  buscarId(id) {
+    return this.pessoas.find(pessoa => pessoa.id == id);
+  }
+
+
 
 }
